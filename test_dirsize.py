@@ -19,3 +19,13 @@ def test_top_sorts_descending():
 def test_top_respects_minimum():
     sizes = {"a": 1, "b": 30}
     assert dirsize.top(sizes, 10, min_bytes=5) == [("b", 30)]
+
+
+def test_scan_counts_files(tmp_path):
+    (tmp_path / "one.txt").write_text("hello", encoding="utf-8")
+    sub = tmp_path / "sub"
+    sub.mkdir()
+    (sub / "two.txt").write_text("world!", encoding="utf-8")
+    files, dirs = dirsize.scan(str(tmp_path))
+    assert len(files) == 2
+    assert dirs[str(tmp_path)] == 11
