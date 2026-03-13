@@ -15,3 +15,18 @@ python dirsize.py D:/ --top 20          # top 20 directories and files
 python dirsize.py . --min 100MB         # ignore small fry
 python dirsize.py . --files-only
 ```
+
+## Output
+
+```
+largest directories
+     12.4 GB  node_modules
+      3.1 GB  .git
+largest files
+      880 MB  build/app.iso
+       41 MB  .git/objects/pack/pack-9f2.pack
+total: 16.9 GB across 48210 files
+```
+
+Directory totals are cumulative: a parent includes everything beneath it, so
+the list reads top-down like a treemap.
