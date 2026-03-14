@@ -30,3 +30,10 @@ total: 16.9 GB across 48210 files
 
 Directory totals are cumulative: a parent includes everything beneath it, so
 the list reads top-down like a treemap.
+
+## Notes
+
+- Symlinks are not followed unless you pass `--follow-links`, so a loop cannot
+  hang the scan.
+- Unreadable files are skipped rather than aborting the run.
+- `--min` accepts `500KB`, `10MB`, `1.5GB`.
