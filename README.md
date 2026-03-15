@@ -37,3 +37,10 @@ the list reads top-down like a treemap.
   hang the scan.
 - Unreadable files are skipped rather than aborting the run.
 - `--min` accepts `500KB`, `10MB`, `1.5GB`.
+
+## Tests
+
+```
+pip install pytest
+pytest
+```
