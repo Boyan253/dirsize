@@ -5,6 +5,8 @@ import argparse
 import os
 import sys
 
+__version__ = "0.1.0"
+
 UNITS = ["B", "KB", "MB", "GB", "TB", "PB"]
 
 
@@ -56,6 +58,8 @@ def parse_size(text):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--version", action="version",
+                    version="%(prog)s " + __version__)
     ap.add_argument("path", nargs="?", default=".")
     ap.add_argument("-n", "--top", type=int, default=15, help="how many entries to show")
     ap.add_argument("--min", default="0", help="ignore anything smaller, e.g. 10MB")
